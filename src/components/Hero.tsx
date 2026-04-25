@@ -322,19 +322,19 @@ export default function Hero() {
           {/* Stats */}
           <motion.div
             variants={item}
-            style={{ width: "100%", display: "flex", justifyContent: "center" }}
+            style={{ display: "flex", justifyContent: "center", width: "100%" }}
           >
-            <div style={{ display: "flex", gap: 0 }}>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: 32 }}>
               {[
                 {
                   value: "2+",
                   label: "Years Experience",
-                  color: "var(--accent-2)",
+                  color: "var(--accent-1)",
                 },
                 {
                   value: "5+",
                   label: "Projects Shipped",
-                  color: "var(--accent-1)",
+                  color: "var(--accent-2)",
                 },
                 // {
                 //   value: "3",
@@ -344,46 +344,58 @@ export default function Hero() {
               ].map(({ value, label, color }, i) => (
                 <div
                   key={label}
-                  style={{
-                    paddingRight: i < 2 ? 32 : 0,
-                    marginRight: i < 2 ? 32 : 0,
-                    borderRight: i < 1 ? "1px solid var(--border)" : "none",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                  }}
+                  style={{ display: "flex", alignItems: "flex-start" }}
                 >
                   <div
                     style={{
-                      width: 28,
-                      height: 3,
-                      borderRadius: 2,
-                      background: color,
-                      marginBottom: 10,
-                    }}
-                  />
-                  <div
-                    style={{
-                      fontFamily: "var(--font-display)",
-                      fontSize: "1.8rem",
-                      fontWeight: 800,
-                      color: "var(--text-primary)",
-                      lineHeight: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
                     }}
                   >
-                    {value}
+                    <div
+                      style={{
+                        width: 28,
+                        height: 3,
+                        borderRadius: 2,
+                        background: color,
+                        marginBottom: 10,
+                      }}
+                    />
+                    <div
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "1.8rem",
+                        fontWeight: 800,
+                        color: "var(--text-primary)",
+                        lineHeight: 1,
+                      }}
+                    >
+                      {value}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 11,
+                        color: "var(--text-tertiary)",
+                        marginTop: 4,
+                        fontFamily: "var(--font-mono)",
+                        whiteSpace: "nowrap" as const,
+                      }}
+                    >
+                      {label}
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      fontSize: 11,
-                      color: "var(--text-tertiary)",
-                      marginTop: 4,
-                      fontFamily: "var(--font-mono)",
-                      whiteSpace: "nowrap" as const,
-                    }}
-                  >
-                    {label}
-                  </div>
+                  {i < 1 && (
+                    <div
+                      style={{
+                        width: 1,
+                        height: 48,
+                        background: "var(--border)",
+                        marginLeft: 32,
+                        alignSelf: "center",
+                      }}
+                    />
+                  )}
                 </div>
               ))}
             </div>
