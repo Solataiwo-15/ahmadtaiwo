@@ -2,7 +2,7 @@
 
 A modern, animated, and fully responsive personal portfolio built with Next.js, TypeScript, and Framer Motion.
 
-🔗 **Live site:** [coming soon after deployment]
+🔗 **Live site:** https://ahmadtaiwo.vercel.app/
 
 ## Tech Stack
 
