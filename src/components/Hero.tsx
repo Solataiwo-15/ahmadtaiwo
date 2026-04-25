@@ -3,7 +3,8 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { Download } from "lucide-react";
+import { Download, Code2, Mail } from "lucide-react";
+import { data } from "@/lib/data";
 
 function useIsDesktop() {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -75,7 +76,7 @@ export default function Hero() {
         style={{
           maxWidth: 1152,
           margin: "0 auto",
-          padding: "32px 24px 48px",
+          padding: "24px 24px 60px",
           position: "relative",
           zIndex: 1,
           width: "100%",
@@ -96,7 +97,7 @@ export default function Hero() {
           }}
         >
           {/* Status badge */}
-          <motion.div variants={item} style={{ marginBottom: 20 }}>
+          <motion.div variants={item} style={{ marginBottom: 40 }}>
             <span
               style={{
                 display: "inline-flex",
@@ -121,12 +122,12 @@ export default function Hero() {
                   animation: "pulse 2s ease-in-out infinite",
                 }}
               />
-              Available for opportunities
+              Open to opportunities
             </span>
           </motion.div>
 
           {/* Giant name */}
-          <motion.div variants={item} style={{ marginBottom: 12 }}>
+          <motion.div variants={item} style={{ marginBottom: 24 }}>
             <h1
               style={{
                 fontFamily: "var(--font-display)",
@@ -152,7 +153,7 @@ export default function Hero() {
               display: "flex",
               alignItems: "center",
               gap: 16,
-              marginBottom: 56,
+              marginBottom: 32,
               width: "100%",
               justifyContent: "center",
             }}
@@ -160,7 +161,7 @@ export default function Hero() {
             <div
               style={{
                 flex: 1,
-                maxWidth: 40,
+                maxWidth: 50,
                 height: 1,
                 background: "var(--border-strong)",
                 flexShrink: 1,
@@ -176,12 +177,12 @@ export default function Hero() {
                 whiteSpace: "nowrap",
               }}
             >
-              Frontend Engineer
+              Frontend Engineer · Lagos, Nigeria
             </span>
             <div
               style={{
                 flex: 1,
-                maxWidth: 40,
+                maxWidth: 50,
                 height: 1,
                 background: "var(--border-strong)",
                 flexShrink: 1,
@@ -192,7 +193,7 @@ export default function Hero() {
           {/* CV Button */}
           <motion.div variants={item} style={{ marginBottom: 32 }}>
             <a
-              href="/AhmadTaiwo.pdf"
+              href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -228,8 +229,97 @@ export default function Hero() {
             </a>
           </motion.div>
 
+          {/* Inline socials — mobile/tablet only */}
+          {!isDesktop && (
+            <motion.div
+              variants={item}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                marginBottom: 32,
+              }}
+            >
+              {[
+                {
+                  href: data.github,
+                  label: "GitHub",
+                  icon: null,
+                  isLinkedIn: false,
+                  isGithub: true,
+                },
+                {
+                  href: data.linkedin,
+                  label: "LinkedIn",
+                  icon: null,
+                  isLinkedIn: true,
+                  isGithub: false,
+                },
+                {
+                  href: `mailto:${data.email}`,
+                  label: "Email",
+                  icon: Mail,
+                  isLinkedIn: false,
+                  isGithub: false,
+                },
+              ].map(({ href, label, icon: Icon, isLinkedIn, isGithub }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    border: "1px solid var(--border-strong)",
+                    color: "var(--text-secondary)",
+                    background: "var(--bg-card)",
+                    transition: "all 0.2s ease",
+                    textDecoration: "none",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--accent-1)";
+                    e.currentTarget.style.color = "var(--accent-1)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--border-strong)";
+                    e.currentTarget.style.color = "var(--text-secondary)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
+                  {isLinkedIn ? (
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                      <rect x="2" y="9" width="4" height="12" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  ) : isGithub ? (
+                    <Code2 size={16} />
+                  ) : Icon ? (
+                    <Icon size={16} />
+                  ) : null}
+                </a>
+              ))}
+            </motion.div>
+          )}
+
           {/* Stats pills */}
-          {/* <motion.div
+          <motion.div
             variants={item}
             style={{
               display: "flex",
@@ -262,7 +352,7 @@ export default function Hero() {
                 {text}
               </span>
             ))}
-          </motion.div> */}
+          </motion.div>
         </motion.div>
       </div>
 
