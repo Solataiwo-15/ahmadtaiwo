@@ -319,39 +319,74 @@ export default function Hero() {
           )}
 
           {/* Stats pills */}
+          {/* Stats */}
           <motion.div
             variants={item}
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 10,
-              justifyContent: "center",
-            }}
+            style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
-            {[
-              { emoji: "⚡", text: "2+ years experience" },
-              { emoji: "🚀", text: "5+ projects shipped" },
-              { emoji: "🤝", text: "3 roles & contracts" },
-            ].map(({ emoji, text }) => (
-              <span
-                key={text}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "8px 14px",
-                  borderRadius: 100,
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 12,
-                  color: "var(--text-secondary)",
-                  background: "var(--bg-card)",
-                  border: "1px solid var(--border-strong)",
-                }}
-              >
-                <span>{emoji}</span>
-                {text}
-              </span>
-            ))}
+            <div style={{ display: "flex", gap: 0 }}>
+              {[
+                {
+                  value: "2+",
+                  label: "Years Experience",
+                  color: "var(--accent-2)",
+                },
+                {
+                  value: "5+",
+                  label: "Projects Shipped",
+                  color: "var(--accent-1)",
+                },
+                // {
+                //   value: "3",
+                //   label: "Roles & contracts",
+                //   color: "var(--accent-3)",
+                // },
+              ].map(({ value, label, color }, i) => (
+                <div
+                  key={label}
+                  style={{
+                    paddingRight: i < 2 ? 32 : 0,
+                    marginRight: i < 2 ? 32 : 0,
+                    borderRight: i < 1 ? "1px solid var(--border)" : "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 28,
+                      height: 3,
+                      borderRadius: 2,
+                      background: color,
+                      marginBottom: 10,
+                    }}
+                  />
+                  <div
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontSize: "1.8rem",
+                      fontWeight: 800,
+                      color: "var(--text-primary)",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {value}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 11,
+                      color: "var(--text-tertiary)",
+                      marginTop: 4,
+                      fontFamily: "var(--font-mono)",
+                      whiteSpace: "nowrap" as const,
+                    }}
+                  >
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>
