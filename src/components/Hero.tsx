@@ -63,7 +63,6 @@ export default function Hero() {
       id="hero"
       ref={sectionRef}
       style={{
-        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
