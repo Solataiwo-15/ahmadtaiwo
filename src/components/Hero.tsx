@@ -192,7 +192,7 @@ export default function Hero() {
           {/* CV Button */}
           <motion.div variants={item} style={{ marginBottom: 32 }}>
             <a
-              href="/cv.pdf"
+              href="/AhmadTaiwo.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{
