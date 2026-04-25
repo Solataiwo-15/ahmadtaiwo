@@ -6,7 +6,7 @@ import { data } from "@/lib/data";
 const projectImages: Record<number, string> = {
   1: "/projects/edible-mart.png",
   2: "/projects/maglo.png",
-  3: "/projects/brighthat.png",
+  3: "/projects/portfolio.png",
   4: "/projects/todo-board.png",
   5: "/projects/qr-generator.png",
 };

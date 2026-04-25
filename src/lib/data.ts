@@ -47,17 +47,17 @@ export const data = {
       featured: false,
     },
     {
-      id: 3,
-      name: "BrightHat",
-      tagline: "EdTech platform connecting students & tutors",
-      description:
-        "An educational platform with a responsive and accessible UI, with server-side rendering to improve SEO and performance.",
-      tech: ["Next.js", "Tailwind CSS", "SSR"],
-      live: "https://brighthat.vercel.app/",
-      github: "https://github.com/Solataiwo-15/brighthat",
-      emoji: "🎓",
-      featured: false,
-    },
+  id: 3,
+  name: "Portfolio",
+  tagline: "This very website you're looking at",
+  description:
+    "Designed and built my personal portfolio from scratch with a focus on UI craftsmanship, smooth animations, and a great user experience across all devices.",
+  tech: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS", "Vercel"],
+  live: "https://ahmadtaiwo.vercel.app/",
+  github: "https://github.com/Solataiwo-15/ahmadtaiwo",
+  emoji: "🎨",
+  featured: false,
+},
     {
       id: 4,
       name: "Todo Board",
