@@ -7,11 +7,13 @@ import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SocialDock from "@/components/SocialDock";
 
 export default function Home() {
   return (
     <>
       <GridBackground />
+      <SocialDock />
       <Navbar />
       <main style={{ position: "relative", zIndex: 1, paddingTop: 100 }}>
         <Hero />
